@@ -2,7 +2,7 @@
 
 #include "pointerutil.h"
 
-int main() {
+void startFirstPart() {
 	int firstValue;
 
 	printf("Introduceti un numar:\n");
@@ -22,7 +22,9 @@ int main() {
 		"pFirst, adica modificarea valorii de la adresa %p: %d\n",
 		pFirst, firstValue
 	);
+}
 
+void startSecondPart() {
 	int secondValue = 1 + (2 << 8) + (3 << 16) + (4 << 24);
 	printf(
 		"Cream o variabila, secondValue, ai carei octeti vrem sa fie de la cel"
@@ -75,7 +77,9 @@ int main() {
 	printf("\nNe propunem sa modificam octetul cu valoarea 3 in 71.\n");
 	*(pSecond + 2) = 71;
 	printf("Noua valoare decimala: %d.\n", secondValue);
+}
 
+void startThirdPart() {
 	printf(
 		"\nNe propunem sa citim un vector de la tastatura si sa retinem "
 		"numarul de elemente pare, numarul de elemente prime si media "
@@ -96,6 +100,47 @@ int main() {
 	printf("Elemente prime: %d.\n", primeCount);
 	// Afisarea mediei se face cu 2 zecimale
 	printf("Media aritmetica: %.2f.\n", average);
+}
 
+void startFourthPart() {
+	printf(
+		"\nUrmeaza sa intelegem notiunea de \"const\". Urmariti codul din "
+		"sursa, din functia \"startFourthPart()\"."
+	);
+
+	// Keyword-ul "const" se ataseaza keyword-ului din stanga lui.
+	// Daca nu exista alt keyword la stanga se ataseaza la dreapta.
+	// int const* p => pointer la intreg constant
+	// int *const p => pointer constant la intreg
+	// const int* const p => pointer constant la intreg constant
+	// const int* p => Ce e aici?
+
+	// Ce se intampla daca incercam sa compilam codul urmator?
+	// int a = 5;
+	// int const* p = &a;
+	// *p = 7;
+
+	// Ce se intampla daca incercam sa compilam codul urmator?
+	// int a = 5;
+	// char *const p = &a;
+	// *p = 7;
+
+	//Ce se intampla daca incercam sa compilam codul urmator?
+	// int a = 5;
+	// char *const p = &a;
+	// p ++;
+	// *p = 7;
+}
+
+void startFifthPart() {
+	
+}
+
+int main() {
+	startFirstPart();
+	startSecondPart();
+	startThirdPart();
+	startFourthPart();
+	startFifthPart();
 	return 0;
 }
