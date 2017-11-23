@@ -77,8 +77,8 @@ int main() {
 	printf("Noua valoare decimala: %d.\n", secondValue);
 
 	printf(
-		"\nNe propunem sa citim un vector de la tastatura si sa retinem"
-		"numarul de elemente pare, numarul de elemente prime si media"
+		"\nNe propunem sa citim un vector de la tastatura si sa retinem "
+		"numarul de elemente pare, numarul de elemente prime si media "
 		"aritmetica a acestora.\nIntroduceti lungimea vectorului:\n"
 	);
 
@@ -92,6 +92,10 @@ int main() {
 
 	// Functia este implementata in "pointerutil.h"
 	getDataFromVector(v, vLength, &evenCount, &primeCount, &average);
+	printf("Elemente pare: %d.\n", evenCount);
+	printf("Elemente prime: %d.\n", primeCount);
+	// Afisarea mediei se face cu 2 zecimale
+	printf("Media aritmetica: %.2f.\n", average);
 
 	return 0;
 }
