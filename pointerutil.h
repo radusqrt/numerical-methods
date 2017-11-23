@@ -35,3 +35,24 @@ void getDataFromVector(int *v, int vLength, int *evenCount, int *primeCount, flo
 
 	*average /= vLength;
 }
+
+int descendingComparingFunction (const void *first, const void *second) {
+	// const se leaga de void, nu de *, deci elementele sunt constante,
+	// nu pointerii
+
+	// fiind (void *), dar noi stiind ca vom avea un vector de
+	// elemente intregi pe care le comparam, putem face cast
+	// la (int *) si cand se va dereferentia, va lua 4 octeti,
+	// deci va compara elemente intregi. Analog, puteam face
+	// cast la (char *) pentru elemente octeti etc.
+
+	return *((int *) second) - *((int *) first);
+}
+
+void printVector(int v[], int length) {
+	int i;
+	for (i = 0; i < length; ++i) {
+		printf("%d ", v[i]);
+	}
+	printf("\n");
+}

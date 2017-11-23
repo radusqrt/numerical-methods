@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "pointerutil.h"
 
@@ -133,7 +134,43 @@ void startFourthPart() {
 }
 
 void startFifthPart() {
+	printf("\nUrmeaza sa prezentam pointerii la functii.\n");
+	// De ce am avea nevoie de pointeri la functii? Functia "qsort" din stdlib
+	// primeste un pointer la o functie de comparare ca sa le sorteze in orice
+	// mod isi doreste cel care o foloseste.
+
+	// void qsort(
+	// 	void *base,
+	// 	size_t nitems,
+	// 	size_t size,
+	// 	int (*compar)(const void *, const void*)
+	// )
+
+	// Observam ca vrea sa primeasca la al 4-lea parametru un pointer la o
+	// functie care returneaza un "int" si primeste ca parametri doi pointeri
+	// de tip (void *), adica generici (orice), la doua variabile pe care le
+	// va compara.
+	// Conform http://www.cplusplus.com/reference/cstdlib/qsort/ daca functia
+	// de comparare returneaza < 0, inseamna ca primul element va fi inaintea
+	// celui de-al doilea in vector, la 0 sunt egale si la > 0, primul element
+	// va fi pus dupa al doilea in vector 
+
+	// Ne definim in "pointerutil.h" propria functie de comparare si invatam
+	// si putin "polimorfism in C" cu ocazia acelui "void *". Functia noastra
+	// va sorta DESCRESCATOR, deci daca la < 0 ele vor ramane in pozitia
+	// initiala (primul inainte de al doilea) atunci vom returna diferenta
+	// dintre valoarea celui de-al doilea element si a primului.
+	// primul = 9, al doilea = 7. 7 - 9 = -2 < 0 deci vor ramane in ordinea
+	// (9, 7), adica DESCRESCATOR
 	
+	int v[] = {1, 7, 29, 2, 12, 4, 0};
+	printf("Inainte de sortare:\n");
+	printVector(v, 7);
+	
+	qsort(v, 7, sizeof(v[0]) /* 4 */, descendingComparingFunction);
+	printf("Dupa sortare:\n");
+	printVector(v, 7);
+
 }
 
 int main() {
