@@ -170,7 +170,80 @@ void startFifthPart() {
 	qsort(v, 7, sizeof(v[0]) /* 4 */, descendingComparingFunction);
 	printf("Dupa sortare:\n");
 	printVector(v, 7);
+}
 
+void startSixthPart() {
+	int i, j, numLines, numCols;
+	printf("\nUrmeaza sa invatam despre alocarea dinamica.\n");
+	char *string = malloc(30 * sizeof(char)); // echivalent cu malloc(30)
+	// Am alocat un sir de 30 de caractere pe heap. Putem accesa orice
+	// element intre 0 si 29, adica string[0]..string[29] sau
+	// *string, *(string + 1), ..., *(string + 29).
+	// Deoarece am folosit "malloc", acesti 30 de bytes alocati sunt
+	// RANDOM. Daca dorim sa alocam niste bytes initializati cu 0, vom
+	// folosi "calloc".
+	
+	// Ca sa eliberam zona de memorie de pe heap ocupara de "string",
+	// folosim functia "free".
+	free(string);
+
+	// Daca dorim putem sa il realocam cu alte valori.
+	string = malloc(50 * sizeof(char)); // echivalent cu malloc(50)
+	// Dar e important ca dupa ce nu il mai folosim sa nu uitam sa eliberam
+	// memoria folosita deoarece daca n-o facem noi, n-o s-o faca nimeni si
+	// o sa va freeze-uiasca laptopul la un moment dat :)
+	free(string);
+	// Recomand ca dupa ce alocati ceva sa puneti si free pe acel ceva si sa
+	// scrieti codul necesar intre cele doua instructiuni.
+
+	int *zeroedVector = calloc(50, sizeof(int)); // echivalent cu calloc(50, 4)
+	free(zeroedVector);
+
+	printf("Alocam o matrice dinamic. Numar de linii, de coloane = ?\n");
+	scanf("%d%d", &numLines, &numCols);
+	// Matricea poate fi vazuta ca un vector de vectori. Vom aloca
+	// numLines viitori vectori, deci (int *).
+	int **matrix = malloc(numLines * sizeof(int *));
+	// EX: Pentru numLines = 5, avem acum:
+	// matrix = {matrix[0], matrix[1], matrix[2], matrix[3], matrix[4]};
+	// matrix[i] este pointer nealocat, deci practic am alocat doar o linie
+	// de pointeri momentan. Acum trecem prin fiecare element (linie) si
+	// alocam cate numCols elemente (int).
+	for (i = 0; i < numLines; ++i) {
+		matrix[i] = malloc(numCols * sizeof(int));
+	}
+	// Acum fiecare matrix[i] este un vector de numCols elemente intregi,
+	// deci putem accesa matrix[i][j], astfel simuland o matrice.
+	// EX: Pentru numCols = 2, avem acum:
+	// matrix[0] = {matrix[0][0], matrix[0][1]};
+	// matrix[1] = {matrix[1][0], matrix[1][1]};
+	// ...
+	printf("Dati elementele din matrice:\n");
+	for (i = 0; i < numLines; ++i) {
+		for (j = 0; j < numCols; ++j) {
+			scanf("%d", &matrix[i][j]);
+		}
+	}
+
+	printf("Matricea este:\n");
+	for (i = 0; i < numLines; ++i) {
+		for (j = 0; j < numCols; ++j) {
+			printf("%d ", matrix[i][j]);
+		}
+		printf("\n");
+	}
+	// Daca acum vrem sa eliberam memoria si facem "free(matrix)", vom
+	// elibera doar vectorul de pointeri, adica vor disparea doar valorile
+	// matrix[0], matrix[1] etc., dar ce au alocat fiecare dintre ele altundeva
+	// pe heap va ramane alocat, asa ca vom dealoca de la coada la cap.
+	for (i = 0; i < numLines; ++i) {
+		free(matrix[i]);
+	}
+	// Ce se intampla daca incercam free(matrix + 1) si de ce?
+	free(matrix);
+
+	// Cititi laboratorul 9 si orice intrebari aveti, astept pe grup:
+	// https://ocw.cs.pub.ro/courses/programare/laboratoare/lab09
 }
 
 int main() {
@@ -179,5 +252,6 @@ int main() {
 	startThirdPart();
 	startFourthPart();
 	startFifthPart();
+	startSixthPart();
 	return 0;
 }
