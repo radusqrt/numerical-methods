@@ -3,6 +3,7 @@
 int isPrime(int number) {
 	int i, sqrtNumber = sqrt(number);
 
+	if (number < 2) return 0;
 	if (number == 2) return 1;
 
 	for (i = 2; i <= sqrtNumber; ++i) {
