@@ -49,6 +49,10 @@ int descendingComparingFunction (const void *first, const void *second) {
 	return *((int *) second) - *((int *) first);
 }
 
+int ascendingComparingFunction (const void *first, const void *second) {
+	return *((int *) first) - *((int *) second);
+}
+
 void printVector(int v[], int length) {
 	int i;
 	for (i = 0; i < length; ++i) {
