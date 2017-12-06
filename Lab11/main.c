@@ -49,20 +49,21 @@ typedef union numar {
 } Numar;
 
 /* Tipuri auxiliare folosite pentru demonstratii */
+
 struct aux1 {
     char a;
     int b;
-    double c;
+    short c;
 };
 
 struct aux2 {
     int b;
     char a;
-    double c;
+    short c;
 };
 
 struct aux3 {
-    double c;
+    short c;
     char a;
     int b;
 };
@@ -99,7 +100,8 @@ int main() {
             "diferenta mare intre %f si %f. Exista speranta!\n", s1.nume,
             s2.nume, s2.an, s1.medie, s2.medie);
 
-    /* Alocare dinamica de structuri */
+    /*=========================================================================
+      Alocare dinamica de structuri */
     Complex *nr1, *v_complex;
     /* Alocarea unui numar complex */
     nr1 = (Complex *) malloc(1 * sizeof(Complex));
@@ -123,5 +125,43 @@ int main() {
     printf("Suma tuturor numerelor complexe definite: %f + %fi.\n",
         suma.real, suma.imaginar);
 
+    /*=========================================================================
+      Dimensiunea unei structuri */
+    printf("%ld %ld %ld\n", sizeof(struct aux1), sizeof(struct aux2),
+        sizeof(struct aux3));
+
+    /* Se ia cel mai mare camp de date si se foloseste ca template.
+    struct aux1: int b (4 octeti)
+    1. incerc sa pun "char a" intr-un spatiu de 4 octeti. E ok, mai am loc de 3
+    octeti.
+    [a, X, X, X]
+    2. incerc sa pun "int b" intr-un spatiu de 3 octeti. Nu e ok, creez alti 4
+    octeti si pun acolo.
+    return 0;
+    [a, X, X, X]
+    [b]
+    3. incerc sa pun "short c", dar nu mai am loc, deci creez alti 4 octeti.
+    Mai raman 2 liberi.
+    [a, X, X, X]
+    [b]
+    [c, X, X]
+    
+    => 12 octeti folositi*/
+
+    /* Se ia cel mai mare camp de date si se foloseste ca template.
+    struct aux1: int b (4 octeti)
+    1. incerc sa pun "int b" intr-un spatiu de 4 octeti.
+    [b]
+    2. incerc sa pun "char a" intr-un spatiu nout de 4 octeti. E ok,
+    mai raman 3 octeti.
+    return 0;
+    [b]
+    [a, X, X, X]
+    3. incerc sa pun "short c" intr-un spatiu de 3 octeti. E ok, mai
+    ramane unul.
+    [b]
+    [a, c, X]
+    
+    => 8 octeti folositi*/
     return 0;
 }
