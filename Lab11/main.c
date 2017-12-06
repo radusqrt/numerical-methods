@@ -152,7 +152,7 @@ int main() {
     => 12 octeti folositi*/
 
     /* Se ia cel mai mare camp de date si se foloseste ca template.
-    struct aux1: int b (4 octeti)
+    struct aux2: int b (4 octeti)
     1. incerc sa pun "int b" intr-un spatiu de 4 octeti.
     [b]
     2. incerc sa pun "char a" intr-un spatiu nout de 4 octeti. E ok,
@@ -166,5 +166,23 @@ int main() {
     [a, c, X]
     
     => 8 octeti folositi*/
+
+    /* Pentru aux2? */
+
+    /*=========================================================================
+      Uniuni. */
+
+    printf("Uniunea Numar. Dimensiune uniune = dimensiunea celui mai mare camp"
+" = %ld\n", sizeof(Numar));
+
+    /* Se poate accesa doar campul care a fost modificat ultimul */
+    Numar a;
+    a.cifra = 2;
+    printf("%d\n", a.cifra);
+    a.intreg = 2000;
+    printf("%d %d\n", a.intreg, a.cifra);
+    a.real = 1024.87;
+    printf("%lf %d %d\n", a.real, a.intreg, a.cifra);
+
     return 0;
 }
