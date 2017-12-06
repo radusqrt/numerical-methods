@@ -125,6 +125,9 @@ int main() {
     printf("Suma tuturor numerelor complexe definite: %f + %fi.\n",
         suma.real, suma.imaginar);
 
+    free(nr1);
+    free(v_complex);
+
     /*=========================================================================
       Dimensiunea unei structuri */
     printf("%ld %ld %ld\n", sizeof(struct aux1), sizeof(struct aux2),
