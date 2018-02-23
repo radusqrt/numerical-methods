@@ -102,7 +102,7 @@ std::queue<SomeClass> q;
 
 ```cpp
 q.size(); // number of elements
-q.empty(); // checks whether the vector is empty
+q.empty(); // checks whether the queue is empty
 ```
 
 
@@ -155,4 +155,71 @@ while (!q.empty()) {
 
 /* Side note: if you needed to iterate through the elements of a queue, you'd
 actually need more than a queue */
+```
+
+## std::stack
+
+#### Constructors
+
+```cpp
+// You'll probably use only this constructor
+std::stack<SomeClass> s;
+```
+
+#### Capacity
+
+```cpp
+q.size(); // number of elements
+q.empty(); // checks whether the stack is empty
+```
+
+
+#### Modifiers & Access
+
+```cpp
+s.top(); // the top element of the stack
+s.push(x); // inserts x at the top of the stack
+s.pop(); // removes the top element
+```
+
+#### Reference vs. Copy
+
+```cpp
+/* Pass by value (s will be a copy of the given argument, not
+the argument itself) */
+void deepcopy(std::stack<int> s) {
+    v.push(17);
+}
+
+/* Pass by reference (v will be a reference to the given argument,
+so any changes on v are actual changes on the argument) */
+void reference(std::stack<int> &s) {
+    s.push(17);
+}
+
+int main() {
+    std::stack<int> a;
+    a.push(1);
+    a.push(2);
+
+    deepcopy(a);
+    // a.size() == 2, a.top() == 2
+    reference(a);
+    // a.size() == 3, a.top() == 17
+}
+```
+
+#### Iteration
+
+```cpp
+while (!s.empty()) {
+    SomeClass x = q.top();
+    s.pop();
+
+    // Do something with x, maybe add new elements to s
+    ...
+}
+
+/* Side note: if you needed to iterate through the elements of a stack, you'd
+actually need more than a stack */
 ```
