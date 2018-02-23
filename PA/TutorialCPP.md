@@ -10,6 +10,7 @@ std::vector<int> second(5); // five ints with value 0
 std::vector<int> third(3, 20); // three ints with value 20
 std::vector<int> fourth(second.begin(), second.end()); // a copy of second
 std::vector<int> fifth(third); // a copy of third
+std::vector<int> sixth = {5, 7, 9}; // three ints with values 5, 7, 9
 std::vector<std::string> words {"hello", "from", "the", "other", "side"}; // c++11 initializer list
 ```
 
@@ -52,7 +53,7 @@ int main() {
     deepcopy(a);
     // a[0] == 1
     reference(a);
-    // a[0] = 5
+    // a[0] == 5
 }
 ```
 
@@ -69,10 +70,21 @@ for (unsigned i = 0; i < v.size(); ++i) {
 for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
     *it = ...; // *it is equivalent to v[i]
 }
+/* Side node: if v would be a reference to a const std::vector, then you
+would need "const_iterator" instead of "iterator" so you cannot modify the
+values in v */
 
 // C++11 auto iteration
 for (auto element : v) {
     // do something with element
     // in this way you cannot modify v
 }
+
+for (auto &element : v) {
+    // do something with element
+    // in this way you cannot modify v
+}
+
+/* In the first example, element is a copy of an actual element in v. In the
+second example, element is a reference to an element in v. */
 ```
