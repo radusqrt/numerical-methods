@@ -2,7 +2,7 @@
 
 ## std::vector
 
-### Constructors
+#### Constructors
 
 ```cpp
 std::vector<int> first;	// empty vector of ints
@@ -14,7 +14,7 @@ std::vector<int> sixth = {5, 7, 9}; // three ints with values 5, 7, 9
 std::vector<std::string> words {"hello", "from", "the", "other", "side"}; // c++11 initializer list
 ```
 
-### Capacity
+#### Capacity
 
 ```cpp
 v.size(); // number of elements
@@ -22,7 +22,7 @@ v.empty(); // checks whether the vector is empty
 ```
 
 
-### Modifiers & Access
+#### Modifiers & Access
 
 ```cpp
 v[i]; // element on the i-th position (zero-indexed)
@@ -30,7 +30,7 @@ v.clear(); // clears the vector - size becomes 0, capacity unchanged
 v.push_back(element); // inserts element to the back of the vector
 ```
 
-### Reference vs. Copy
+#### Reference vs. Copy
 
 ```cpp
 /* Pass by value (v will be a copy of the given argument, not
@@ -57,7 +57,7 @@ int main() {
 }
 ```
 
-### Iteration
+#### Iteration
 
 ```cpp
 // Index iteration
@@ -91,14 +91,14 @@ second example, element is a reference to an element in v,. */
 
 ## std::queue
 
-### Constructors
+#### Constructors
 
 ```cpp
 // You'll probably use only this constructor
 std::queue<SomeClass> q;
 ```
 
-### Capacity
+#### Capacity
 
 ```cpp
 q.size(); // number of elements
@@ -106,7 +106,7 @@ q.empty(); // checks whether the vector is empty
 ```
 
 
-### Modifiers & Access
+#### Modifiers & Access
 
 ```cpp
 q.front(); // first element of the queue: if you add 7, 2 and 9, front() is 7
@@ -115,7 +115,7 @@ q.push(x); // inserts x at the back of the queue
 q.pop(); // removes the first (front) element
 ```
 
-### Reference vs. Copy
+#### Reference vs. Copy
 
 ```cpp
 /* Pass by value (q will be a copy of the given argument, not
@@ -142,7 +142,7 @@ int main() {
 }
 ```
 
-### Iteration
+#### Iteration
 
 ```cpp
 while (!q.empty()) {
