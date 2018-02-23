@@ -314,14 +314,14 @@ for (auto &p : v) {
 
 ## std::unordered_map
 
-It has the *same* usage pattern as map.
+It has the **same** usage pattern as map.
 
 Differences:
 - std::map:
-    - stored as a *binary search tree*
-    - add/search average complexity is *O(logN)*
-    - elements are in *sorted* order when you iterate through them
+    - stored as a **binary search tree**
+    - add/search average complexity is **O(logN)**
+    - elements are in **sorted** order when you iterate through them
 - std::unordered_map:
-    - stored as a *hashtable*
-    - add/search average complexity is *O(1)*
-    - elements are *NOT* in *sorted* order when you iterate through them
+    - stored as a **hashtable**
+    - add/search average complexity is **O(1)**
+    - elements are **NOT** in **sorted** order when you iterate through them
