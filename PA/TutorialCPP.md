@@ -22,7 +22,7 @@ v.empty(); // checks whether the vector is empty
 ```
 
 
-### Modifiers
+### Modifiers & Access
 
 ```cpp
 v[i]; // element on the i-th position (zero-indexed)
@@ -46,7 +46,7 @@ void reference(std::vector<int> &v) {
 }
 
 int main() {
-    std::vector a;
+    std::vector<int> a;
     a.push_back(1);
     a.push_back(2);
 
@@ -87,4 +87,72 @@ for (auto &element : v) {
 
 /* In the first example, element is a copy of an actual element in v. In the
 second example, element is a reference to an element in v,. */
+```
+
+## std::queue
+
+### Constructors
+
+```cpp
+// You'll probably use only this constructor
+std::queue<SomeClass> q;
+```
+
+### Capacity
+
+```cpp
+q.size(); // number of elements
+q.empty(); // checks whether the vector is empty
+```
+
+
+### Modifiers & Access
+
+```cpp
+q.front(); // first element of the queue: if you add 7, 2 and 9, front() is 7
+q.back(); // last element; if you add 7, 2 and 9, back() is 9
+q.push(x); // inserts x at the back of the queue
+q.pop(); // removes the first (front) element
+```
+
+### Reference vs. Copy
+
+```cpp
+/* Pass by value (q will be a copy of the given argument, not
+the argument itself) */
+void deepcopy(std::queue<int> q) {
+    v.pop();
+}
+
+/* Pass by reference (v will be a reference to the given argument,
+so any changes on v are actual changes on the argument) */
+void reference(std::queue<int> &q) {
+    q.pop();
+}
+
+int main() {
+    std::queue<int> a;
+    a.push(1);
+    a.push(2);
+
+    deepcopy(a);
+    // a.size() == 2, a.back() == 2
+    reference(a);
+    // a.size() == 1, a.back() == 1
+}
+```
+
+### Iteration
+
+```cpp
+while (!q.empty()) {
+    SomeClass x = q.front();
+    q.pop();
+
+    // Do something with x, maybe add new elements to q
+    ...
+}
+
+/* Side note: if you needed to iterate through the elements of a queue, you'd
+actually need more than a queue */
 ```
