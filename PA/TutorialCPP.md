@@ -245,6 +245,9 @@ m.empty(); // checks whether the map is empty
 
 ```cpp
 m[key]; // value at key
+/* Side note: if you try m[key] but key is not yet in the map, an entry will
+be created in the map and next time you'll try to find the key, it will exist
+and it will have a default value. */
 m.at(key); // value at key
 m[key] = value; // puts value at key
 m.erase(k); // deletes the (key, value) pair with key k
