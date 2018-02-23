@@ -86,7 +86,7 @@ for (auto &element : v) {
 }
 
 /* In the first example, element is a copy of an actual element in v. In the
-second example, element is a reference to an element in v,. */
+second example, element is a reference to an element in v. */
 ```
 
 ## std::queue
@@ -154,7 +154,7 @@ while (!q.empty()) {
 }
 
 /* Side note: if you needed to iterate through the elements of a queue, you'd
-actually need more than a queue */
+actually need more than a queue. */
 ```
 
 ## std::stack
@@ -221,7 +221,7 @@ while (!s.empty()) {
 }
 
 /* Side note: if you needed to iterate through the elements of a stack, you'd
-actually need more than a stack */
+actually need more than a stack. */
 ```
 
 ## std::map
@@ -428,3 +428,88 @@ Differences:
     - stored as a **hashtable**
     - add/search average complexity is **O(1)**
     - elements are **NOT** in **sorted** order when you iterate through them
+
+## std::priority_queue (heap)
+
+#### Constructors
+
+```cpp
+std::priority_queue<int> first; // max-heap by default (top element is max)
+
+class myCompClass {
+    bool reverse;
+public:
+    myCompClass(const bool &revparam = false) {
+        reverse = revparam;
+    }
+
+    bool operator() (const int& lhs, const int &rhs) const {
+        if (reverse) {
+            return lhs > rhs;
+        }
+        return lhs < rhs;
+    }
+};
+
+std::priority_queue<int, std::vector<int>, myCompClass> second; // class-defined less-than comparison
+std::priority_queue<int, std::vector<int>, myCompClass> third(true); // class-defined greathen-than comparison
+```
+
+#### Capacity
+
+```cpp
+pq.size(); // number of elements
+pq.empty(); // checks whether the priority queue is empty
+```
+
+
+#### Modifiers & Access
+
+```cpp
+pq.top(); // the top element of the priority queue
+pq.push(x); // inserts x in heap
+pq.pop(); // removes the top element
+```
+
+#### Reference vs. Copy
+
+```cpp
+/* Pass by value (pq will be a copy of the given argument, not
+the argument itself) */
+void deepcopy(std::priority_queue<int> pq) {
+    pq.pop();
+}
+
+/* Pass by reference (pq will be a reference to the given argument,
+so any changes on pq are actual changes on the argument) */
+void reference(std::priority_queue<int> &pq) {
+    pq.pop();
+}
+
+int main() {
+    std::priority_queue<int> a; // max-heap
+    a.push(16);
+    a.push(1);
+    a.push(20);
+
+    deepcopy(a);
+    // a.top() == 20
+    reference(a);
+    // a.top() == 16
+}
+```
+
+#### Iteration
+
+```cpp
+while (!pq.empty()) {
+    SomeClass x = pq.top();
+    pq.pop();
+
+    // Do something with x, maybe add new elements to pq
+    ...
+}
+
+/* Side note: if you needed to iterate through the elements of a priority queue,
+you'd actually need more than a priority queue. */
+```
