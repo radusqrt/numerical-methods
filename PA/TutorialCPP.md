@@ -77,14 +77,14 @@ values in v */
 // C++11 auto iteration
 for (auto element : v) {
     // do something with element
-    // in this way you cannot modify v
+    // in this way you CANNOT modify v
 }
 
 for (auto &element : v) {
     // do something with element
-    // in this way you cannot modify v
+    // in this way you CAN modify v
 }
 
 /* In the first example, element is a copy of an actual element in v. In the
-second example, element is a reference to an element in v. */
+second example, element is a reference to an element in v,. */
 ```
