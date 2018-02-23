@@ -247,6 +247,8 @@ m.empty(); // checks whether the map is empty
 m[key]; // value at key
 m.at(key); // value at key
 m[key] = value; // puts value at key
+m.erase(k); // deletes the (key, value) pair with key k
+m.erase(it); // deletes the (key, value) pointed by the iterator it
 m.clear(); // clears the map - size becomes 0
 ```
 
@@ -314,7 +316,7 @@ for (auto &p : v) {
 
 ## std::unordered_map
 
-It has the **same** usage pattern as map.
+It has the **same** usage pattern as std::map.
 
 Differences:
 - std::map:
@@ -322,6 +324,107 @@ Differences:
     - add/search average complexity is **O(logN)**
     - elements are in **sorted** order when you iterate through them
 - std::unordered_map:
+    - stored as a **hashtable**
+    - add/search average complexity is **O(1)**
+    - elements are **NOT** in **sorted** order when you iterate through them
+
+## std::set
+
+#### Constructors
+
+```cpp
+// You'll probably use only this constructor
+std::set<SomeClass> s;
+```
+
+#### Capacity
+
+```cpp
+s.size(); // number of elements
+s.empty(); // checks whether the set is empty
+```
+
+
+#### Modifiers & Access
+
+```cpp
+s.insert(x); // inserts x into the set
+s.erase(x); // deletes x from the set
+s.erase(it); // deletes the element pointed by the iterator it
+s.clear(); // clears the set - size becomes 0
+```
+
+#### Lookup
+
+```cpp
+// Search for an element
+if (s.find(someElement) == s.end()) {
+    // this means the element someElement is not found in the set
+} else {
+    // someElement is already in the set
+}
+```
+
+#### Reference vs. Copy
+
+```cpp
+/* Pass by value (s will be a copy of the given argument, not
+the argument itself) */
+void deepcopy(std::set<std::string> s) {
+    s.erase("useless");
+}
+
+/* Pass by reference (m will be a reference to the given argument,
+so any changes on v are actual changes on the argument) */
+void reference(std::set<std::string> &s) {
+    s.erase("useless");
+}
+
+int main() {
+    std::set<std::string> a;
+    a.insert("useless");
+
+    deepcopy(a);
+    // a.find("useless") != a.end()
+    reference(a);
+    // a.find("useless") == a.end()
+}
+```
+
+#### Iteration
+
+```cpp
+// Iterator iteration
+for (std::set<SomeClass>::iterator it = s.begin(); it != s.end(); ++it) {
+    // *it is the current element; it is a pointer to the current element
+}
+
+/* Side node: if s would be a reference to a const std::set, then you
+would need "const_iterator" instead of "iterator" so you cannot modify the
+values in s */
+
+// C++11 auto iteration
+for (auto x : s) {
+    // x is a copy of an element stored in the set
+    // if you modify x, you WON'T modify s
+}
+
+for (auto &x : v) {
+    // x is a reference of an element stored in the set
+    // if you modify x, you WILL modify s
+}
+```
+
+## std::unordered_set
+
+It has the **same** usage pattern as std::set.
+
+Differences:
+- std::set:
+    - stored as a **binary search tree**
+    - add/search average complexity is **O(logN)**
+    - elements are in **sorted** order when you iterate through them
+- std::unordered_set:
     - stored as a **hashtable**
     - add/search average complexity is **O(1)**
     - elements are **NOT** in **sorted** order when you iterate through them
