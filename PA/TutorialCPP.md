@@ -169,8 +169,8 @@ std::stack<SomeClass> s;
 #### Capacity
 
 ```cpp
-q.size(); // number of elements
-q.empty(); // checks whether the stack is empty
+s.size(); // number of elements
+s.empty(); // checks whether the stack is empty
 ```
 
 
@@ -222,4 +222,92 @@ while (!s.empty()) {
 
 /* Side note: if you needed to iterate through the elements of a stack, you'd
 actually need more than a stack */
+```
+
+## std::map
+
+#### Constructors
+
+```cpp
+// You'll probably use only this constructor
+std::map<KeyClass, ValueClass> m;
+```
+
+#### Capacity
+
+```cpp
+m.size(); // number of elements
+m.empty(); // checks whether the map is empty
+```
+
+
+#### Modifiers & Access
+
+```cpp
+m[key]; // value at key
+m.at(key); // value at key
+m[key] = value; // puts value at key
+m.clear(); // clears the map - size becomes 0
+```
+
+#### Lookup
+
+```cpp
+// Search for an element
+if (m.find(someKey) == m.end()) {
+    // this means the key someKey is not found in the map
+} else {
+    // m[someKey] exists
+}
+```
+
+#### Reference vs. Copy
+
+```cpp
+/* Pass by value (m will be a copy of the given argument, not
+the argument itself) */
+void deepcopy(std::map<std::string, int> m) {
+    m["foo"] = 10;
+}
+
+/* Pass by reference (m will be a reference to the given argument,
+so any changes on v are actual changes on the argument) */
+void reference(std::vector<std::string, int> &m) {
+    m["foo"] = 20;
+}
+
+int main() {
+    std::map<std::string, int> a;
+    a["foo"] = -1;
+
+    deepcopy(a);
+    // a["foo"] == -1
+    reference(a);
+    // a["foo"] == 20
+}
+```
+
+#### Iteration
+
+```cpp
+// Iterator iteration
+for (std::map<KeyClass, ValueClass>::iterator it = m.begin(); it != m.end(); ++it) {
+    // it->first is the key of the current element
+    // it->second is the value of the current element
+}
+
+/* Side node: if m would be a reference to a const std::map, then you
+would need "const_iterator" instead of "iterator" so you cannot modify the
+values in m */
+
+// C++11 auto iteration
+for (auto p : m) {
+    // p is a copy of the (key, value) element stored in the map
+    // if you modify p.second, you WON'T modify m
+}
+
+for (auto &p : v) {
+    // p is a reference of the (key, value) element stored in the map
+    // if you modify p.second, you WILL modify m
+}
 ```
