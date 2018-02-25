@@ -136,9 +136,9 @@ int main() {
     a.push(2);
 
     deepcopy(a);
-    // a.size() == 2, a.back() == 2
+    // a.size() == 2, a.front() == 1
     reference(a);
-    // a.size() == 1, a.back() == 1
+    // a.size() == 1, a.front() == 2
 }
 ```
 
