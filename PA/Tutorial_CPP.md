@@ -213,7 +213,7 @@ int main() {
 
 ```cpp
 while (!s.empty()) {
-    SomeClass x = q.top();
+    SomeClass x = s.top();
     s.pop();
 
     // Do something with x, maybe add new elements to s
