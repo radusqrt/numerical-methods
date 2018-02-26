@@ -5,7 +5,7 @@
 #### Constructors
 
 ```java
-ArrayList<Integer> first = new ArrayList();	// empty vector of ints
+ArrayList<Integer> first = new ArrayList(); // empty vector of ints
 ArrayList<Integer> second = new ArrayList(5); // five ints with value 0
 ArrayList<Integer> third = new ArrayList(second); // a copy of second
 ```
