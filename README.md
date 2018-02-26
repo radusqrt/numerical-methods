@@ -7,5 +7,8 @@ PC:
 - Some helpful functions are implemented in "pointerutil.h";
 - Leave any questions on the Facebook group.
 
+PA:
+- stick to whichever programming language you know better (C++/Java)
+
 MN:
 - TODO
