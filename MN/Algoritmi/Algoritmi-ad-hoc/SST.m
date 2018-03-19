@@ -3,9 +3,9 @@ function [x] = SST(A, b)
     % tril(A, -1) gets us what is strictly under the main diagonal
     % max(matrix) gets us a list of every column's max
     % max(list) gets us the maximum from the list
-    % [NOTE]: There is a function called "istriu(A)" which returns 1 if A is an
-    % [NOTE]  upper triangular matrix but it doesn't catch the e-16 errors
-    % [NOTE]  which should be ignored
+    % [NOTE] There is a function called "istriu(A)" which returns 1 if A is an
+    %        upper triangular matrix but it doesn't catch the e-16 errors
+    %        which should be ignored
     if max(max(abs(tril(A, -1)))) > eps
         disp('The matrix A is not upper triangular!');
         x = NaN;

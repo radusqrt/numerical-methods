@@ -11,4 +11,6 @@ PA:
 - stick to whichever programming language you know better (C++/Java)
 
 MN:
-- TODO
+- Use notation tags:
+	- [NOTE] for related notes
+	- [USES] for sources which use other sources that are in a different folder to suggest that the user should first copy the dependencies (sources needed) in the same folder for testing 
