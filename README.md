@@ -11,8 +11,8 @@ PA:
 - stick to whichever programming language you know better (C++/Java)
 
 MN:
-- Inainte sa va apucati de lucrat la ceva, verificati in "Pull requests" ca n-a facut nimeni asta deja!
-- Conventie: Metodele se vor numi cu litera mare => "Crout", "Doolittle", "Householder", "Givens" etc.
+- Before starting working on something, check the "Pull requests" tab to see if there isn't anyone who's already doing the same thing!
+- Convention: The sources' names will start with a capital letter: "Crout", "Doolittle", "Householder", "Givens" etc.
 - Use notation tags:
 	- [NOTE] for related notes
 	- [USES] for sources which use other sources that are in a different folder to suggest that the user should first copy the dependencies (sources needed) in the same folder for testing 
