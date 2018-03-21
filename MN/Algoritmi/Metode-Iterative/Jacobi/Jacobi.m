@@ -5,7 +5,7 @@ function [x step] = Jacobi(A, b, x0, tol, max_iter)
     N = diag(diag(A));
     P = N - A;
     Gj = inv(N) * P;
-    % calculate the spectral radius of Ggs
+    % calculate the spectral radius of Gj
     sr = max(abs(eig(Gj)));
     % check if the algorithm converges
     
