@@ -1,5 +1,5 @@
 function [x] =  SIT(A, b)
-	% if the matrix is not lower triangular, we cannot solve the system
+    % if the matrix is not lower triangular, we cannot solve the system
     % tril(A, -1) gets us what is strictly under the main diagonal
     % max(matrix) gets us a list of every column's max
     % max(list) gets us the maximum from the list
