@@ -1,24 +1,19 @@
-function [A b] = GPPS(A, b)
+% [USES] Algoritmi-ad-hoc/SST
+
+function [x] = GPPS(A, b)
 	n = size(A)(1);
-	Si = -inf;
 
 	for p = 1 : n -1
-		for i = p : n
-			if p == 1
-				continue
-			endif
-			
-			% calculare factor de scalabilitate
-			for j = 1 : n
-				if abs(A(i, j)) > Si
-					Si = abs(A(i, j));
-				endif
-			endfor
-		endfor
+		if p == 1
+			continue;
+		endif		
 		
-		max = -inf;
-
+		max = -inf;	
 		for i = p : n
+			% calculare factor de scalabilitate
+			Si = max(abs(A(i, :)));
+		
+			% determinare Pmax
 			if abs(A(i, p)) / Si > max
 				max = abs(A(i, p)) / Si;
 				Pmax = i;
@@ -26,11 +21,9 @@ function [A b] = GPPS(A, b)
 		endfor
 		
 		% interschimbarea liniilor p si Pmax
-		for j = p : n 
-				aux = A(p, j);
-				A(p, j) = A(Pmax, j);
-				A(Pmax, j) = aux;
-		endfor
+		aux = A(p, :);
+		A(p, :) = A(Pmax, :);
+		A(Pmax, :) = aux;
 
 		% interschibmarea elementelor in vectorul termenilor liberi
 		aux = b(Pmax);
@@ -50,4 +43,6 @@ function [A b] = GPPS(A, b)
 			b(i, :) = b(i, :) - factor * b(p, :);
 		endfor
 	endfor
+	x = SST(A, b);
 endfunction
+

@@ -1,24 +1,20 @@
-function [A b] = GPP(A, b)
+% [USES] Algoritmi-ad-hoc/SST
+
+function [x] = GPP(A, b)
 	n = size(A)(1);
-	for p = 1 : n -1
+	for p = 1 : n - 1
 		pivot = -inf;
 		linie_pivot = -1;
 		
-		% maximul dintre elementele A(p : n, p)
-		for i = p : n
-			if pivot < abs(A(i, p));
-				pivot = abs(A(i, p));
-				linie_pivot = i;
-			endif
-		endfor
+		% alegem maximul in modul dintre elementele A(p : n, p)
+		[pivot, linie_pivot] = max(abs(A(p : n, p)));
+		linie_pivot = linie_pivot + p - 1;
 
 		% interschimbarea liniilor linie_pivot si p in matrice
 		if p ~= linie_pivot
-			for j = p : n 
-				aux = A(p, j);
-				A(p, j) = A(linie_pivot, j);
-				A(linie_pivot, j) = aux;
-			endfor
+			aux = A(p, :);
+			A(p, :) = A(linie_pivot, :);
+			A(linie_pivot, :) = aux;
 
 			% interschibmarea elementelor in vectorul termenilor liberi
 			aux = b(linie_pivot);
@@ -32,11 +28,12 @@ function [A b] = GPP(A, b)
 				continue;
 			endif
 
-			factor = A(i, p)/A(p, p);
+			factor = A(i, p) / A(p, p);
 			% calcularea vectorizata a matricei sistemului si a
 			% coloanei termenilor liberi									
 			A(i, :) = A(i, :) - factor * A(p, :);
 			b(i, :) = b(i, :) - factor * b(p, :);
 		endfor
 	endfor
+	x = SST(A, b);
 endfunction
