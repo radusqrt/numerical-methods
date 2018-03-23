@@ -1,39 +1,42 @@
 % [USES] Algoritmi-ad-hoc/SST
-
-function [x] = GPP(A, b)
-	n = size(A)(1);
+function [x success] = GPP(A, b)
+	% creez matricea extinsa pentru a reduce numarul de operatii
+	Ae = [A b];		
+	n = size(Ae)(1);
 	for p = 1 : n - 1
 		pivot = -inf;
 		linie_pivot = -1;
 		
-		% alegem maximul in modul dintre elementele A(p : n, p)
-		[pivot, linie_pivot] = max(abs(A(p : n, p)));
+		% alegem maximul in modul dintre elementele Ae(p : n, p)
+		[pivot, linie_pivot] = max(abs(Ae(p : n, p)));
 		linie_pivot = linie_pivot + p - 1;
 
-		% interschimbarea liniilor linie_pivot si p in matrice
+		% interschimbarea liniilor linie_pivot si p in matricea extinsa
 		if p ~= linie_pivot
-			aux = A(p, :);
-			A(p, :) = A(linie_pivot, :);
-			A(linie_pivot, :) = aux;
-
-			% interschibmarea elementelor in vectorul termenilor liberi
-			aux = b(linie_pivot);
-			b(linie_pivot) = b(p);
-			b(p) = aux;
+			aux = Ae(p, :);
+			Ae(p, :) = Ae(linie_pivot, :);
+			Ae(linie_pivot, :) = aux;
 		endif
 		
+		% verific daca pot aplica metoda
+		if Ae(p, p) == 0
+			success = 0;
+			x = Nan;
+			return;
+		endif
+
 		% eliminare gaussiana
 		for i = p + 1 : n
-			if A(p, p) == 0
-				continue;
-			endif
-
-			factor = A(i, p) / A(p, p);
-			% calcularea vectorizata a matricei sistemului si a
-			% coloanei termenilor liberi									
-			A(i, :) = A(i, :) - factor * A(p, :);
-			b(i, :) = b(i, :) - factor * b(p, :);
+			factor = Ae(i, p) / Ae(p, p);
+			% eliminarea elementelor de sub diagonala principala pe coloana p								
+			Ae(i, :) = Ae(i, :) - factor * Ae(p, :);
 		endfor
 	endfor
+
+	% reconstruiesc matricea A si coloana termenilor liberi
+	A = Ae(1 : n, 1 : n);
+	b = Ae(1 : n, n + 1);
+	% dupa ce am adus sistemul la forma triunghiular superioara, aplicam SST
+	% pentru a afla solutiile sistemului initial
 	x = SST(A, b);
 endfunction
