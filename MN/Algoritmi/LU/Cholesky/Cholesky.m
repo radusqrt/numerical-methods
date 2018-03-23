@@ -13,6 +13,7 @@ function [L U x] = Cholesky (A, b)
 		L = NaN;
 		U = NaN;
 		x = NaN;
+		return;
 	endif
 
 	% A is positive definite, yay! 
@@ -34,8 +35,8 @@ function [L U x] = Cholesky (A, b)
     		endif
     	endfor
     endfor
-    U = L';
 
+    U = L';
     % L * (U * x) = b
     y = SST(L, b);
     x = SIT(U, y);
