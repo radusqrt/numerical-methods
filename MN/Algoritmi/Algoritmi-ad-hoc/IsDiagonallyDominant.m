@@ -5,9 +5,9 @@ function is_diag_dom = IsDiagonallyDominant(A)
 	
 	for i = 1 : n
 		% calculate the sum of the elements on line i, except A(i, i)
-		sum_of_line = sum(A(i, :)) - A(i, i);
+		sum_of_line = sum(abs(A(i, :))) - abs(A(i, i));
 
-		if A(i, i) <= sum_of_line
+		if abs(A(i, i)) <= sum_of_line
 			is_diag_dom = 0;
 			break;
 		endif
