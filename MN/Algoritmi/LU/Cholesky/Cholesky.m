@@ -1,40 +1,19 @@
 % calculates Cholesky factorization, A = L * L'
 % A must be symmetrical and positive-definite
-function [L U x success] = Cholesky (A, b) 
+function [L U x] = Cholesky (A, b) 
 
-	[n n] = size(A); % get the size of the matrix A 
-	L = zeros(n); % initialize the lower matrix of size N 
-	success = 0; % I haven't found the factorization yet
-	% I assume I can use Cholesky factorization
-	can_apply_Cholesky = 1; 
-	if A ~= A'
-		% A is not symmetrical
-		L = NaN;
-		U = NaN;
-		x = NaN;
-		success = 0;
-		return;
-	endif
+	% get the size of the matrix A
+	[n n] = size(A); 
+	% initialize the lower and upper matrix of size N 
+	L = zeros(n); 
+	U = zeros(n); 
 
 	% check if A is positive definite 
 	if IsPositiveDefinite(A) == 0
-		can_apply_Cholesky = 0;
-	endif
-
-	for i = 1 : n
-		if A(i, i) < 0
-			can_apply_Cholesky = 0;
-			break;
-		endif
-	endfor
-	
-	if can_apply_Cholesky == 0
 		L = NaN;
 		U = NaN;
 		x = NaN;
-		success = 0;
-		return;
-	endif 
+	endif
 
 	% A is positive definite, yay! 
 	% calculate the factorization, A = L * L'
@@ -55,7 +34,6 @@ function [L U x success] = Cholesky (A, b)
     		endif
     	endfor
     endfor
-    success = 1;
     U = L';
 
     % L * (U * x) = b

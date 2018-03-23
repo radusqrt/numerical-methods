@@ -6,7 +6,7 @@ function is_pos_def = IsPositiveDefinite(A)
 	% A is posiitive definite if it is diagonally-dominant,
 	% A(i, i) > 0 and A is symmetrical
 	if IsDiagonallyDominant(A) == 1 && diag(A) > 0 && A == A'
-    	return;
+		return;
 	endif
 	
 	% A can be positive definite with Sylvester theorem
