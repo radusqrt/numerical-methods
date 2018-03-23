@@ -1,0 +1,42 @@
+% calculates Cholesky factorization, A = L * L'
+% A must be positive-definite
+function [L U x] = Cholesky (A, b) 
+	% get the size of the matrix A
+	[n n] = size(A); 
+	% initialize the lower and upper matrix of size N 
+	L = zeros(n); 
+	U = zeros(n); 
+
+	% check if A is positive definite 
+	if IsPositiveDefinite(A) == 0
+		L = NaN;
+		U = NaN;
+		x = NaN;
+		return;
+	endif
+
+	% A is positive definite, yay! 
+	% calculate the factorization, A = L * L'
+	L(1, 1) = sqrt(A(1, 1));
+	% calculate only the elements situated under and on the main diagonal
+	for i = 1:n
+		for j = 1:i
+			sum_of_line = 0;
+			if i == j
+				sum_of_line = sum(L(i, 1:j - 1) .^ 2);
+				% calculate an element on the main diagonal
+				L(i, i) = sqrt(A(i, i) - sum_of_line);
+			else 
+				sum_of_line = sum(L(i, 1: j - 1) .* L(j, 1: j - 1));
+				% calculate the sum of the previous elements on the same line
+				L(i, j) = (A(i, j) - sum_of_line) / L(j, j);
+			endif
+		endfor
+	endfor
+
+	U = L';
+	% L * (U * x) = b
+	y = SST(L, b);
+	x = SIT(U, y);
+
+endfunction
