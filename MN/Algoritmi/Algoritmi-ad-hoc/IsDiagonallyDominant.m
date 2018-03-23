@@ -1,6 +1,6 @@
 % checks if a matrix A is diagonally dominant 
 function is_diag_dom = IsDiagonallyDominant(A)
-	[n n] = size(A);
+    [n n] = size(A);
 	% I assume it is diagonally dominant
 	is_diag_dom = 1;
 
