@@ -33,13 +33,12 @@ function [x] = GPT(A, b)
             % check if the pivot is 0
             if abs(A(p, p)) < eps
                 disp('One of the pivots is 0');
-                x = NaN
+                x = NaN;
                 return;
             endif
 
             arg = Ae(i, p) / Ae(p, p);
             Ae(i, :) = Ae(i, :) - arg * Ae(p, :);
-            b(i, :) = b(i, :) - arg * b(p, :);
         endfor
     endfor
 

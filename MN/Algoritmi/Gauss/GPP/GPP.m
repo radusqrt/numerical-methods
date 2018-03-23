@@ -1,42 +1,34 @@
 % [USES] Algoritmi-ad-hoc/SST
-function [x success] = GPP(A, b)
-	% creez matricea extinsa pentru a reduce numarul de operatii
-	Ae = [A b];		
-	n = size(Ae)(1);
-	for p = 1 : n - 1
-		pivot = -inf;
-		linie_pivot = -1;
-		
-		% alegem maximul in modul dintre elementele Ae(p : n, p)
-		[pivot, linie_pivot] = max(abs(Ae(p : n, p)));
-		linie_pivot = linie_pivot + p - 1;
+function [x] = GPP(A, b)
+	n = size(A)(1);
+	% build the augmented matrix so we do less operations (tr. matrice extinsa)
+	Ae = [A b];
 
-		% interschimbarea liniilor linie_pivot si p in matricea extinsa
-		if p ~= linie_pivot
-			aux = Ae(p, :);
-			Ae(p, :) = Ae(linie_pivot, :);
-			Ae(linie_pivot, :) = aux;
-		endif
-		
-		% verific daca pot aplica metoda
-		if Ae(p, p) == 0
-			success = 0;
-			x = Nan;
+	for p = 1 : n - 1
+		% we find the absolute maximum from A(p:n, p) to use it as a pivot
+		[pivot, pivot_line] = max(abs(Ae(p : n, p)));
+		pivot_line = pivot_line + p - 1;
+
+		% get the new pivot on diagonal position
+		temp = Ae(p, :);
+		Ae(p, :) = Ae(pivot_line, :);
+		Ae(pivot_line, :) = temp;
+
+		% check if the pivot is 0
+		if abs(Ae(p, p)) < eps
+			x = NaN;
 			return;
 		endif
 
-		% eliminare gaussiana
+		% gaussian elimination
 		for i = p + 1 : n
-			factor = Ae(i, p) / Ae(p, p);
-			% eliminarea elementelor de sub diagonala principala pe coloana p								
-			Ae(i, :) = Ae(i, :) - factor * Ae(p, :);
+            arg = Ae(i, p) / Ae(p, p);
+            Ae(i, :) = Ae(i, :) - arg * Ae(p, :);
 		endfor
 	endfor
 
-	% reconstruiesc matricea A si coloana termenilor liberi
-	A = Ae(1 : n, 1 : n);
-	b = Ae(1 : n, n + 1);
-	% dupa ce am adus sistemul la forma triunghiular superioara, aplicam SST
-	% pentru a afla solutiile sistemului initial
-	x = SST(A, b);
+	% solve the upper triangular system after separating A and b from Ae
+    A = Ae(:, 1 : n);
+    b = Ae(:, n + 1);
+    x = SST(A, b);
 endfunction
