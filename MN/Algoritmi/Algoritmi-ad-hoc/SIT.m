@@ -3,7 +3,9 @@ function [x] =  SIT(A, b)
     % triu(A, 1) returns the upper triangular portion without the main diagonal
     % max(matrix) gets us a list of every column's max
     % max(list) gets us the maximum from the list
-
+    % [NOTE] There is a function called "istril(A)" which returns 1 if A is a
+    %   lower triangular matrix but it doesn't catch the e-16 errors
+    %   which should be ignored
     if max(max(abs(triu(A, 1)))) > eps
         disp('The matrix A is not lower triangular!');
         x = NaN;
@@ -11,7 +13,6 @@ function [x] =  SIT(A, b)
     endif
 
     n = length(b);
-    % initialize x with zeros
     x = zeros(n, 1);
 
     % calculate x1

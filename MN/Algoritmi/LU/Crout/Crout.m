@@ -1,9 +1,9 @@
 % [USES] Algoritmi-ad-hoc/SST
 % [USES] Algoritmi-ad-hoc/SIT
 function [L, U, x] = Crout(A, b)
-    % L = eye(n) returns an n-by-n identity matrix with ones on the main diagonal
-    %     and zeros elsewhere
-    % U = zeros(n) returns an n-by-n matrix of zeros
+    % U = eye(n) returns an n-by-n identity matrix with ones on the main
+    % diagonal and zeros elsewhere
+    % L = zeros(n) returns an n-by-n matrix of zeros
     n = length(b);
     L = zeros(n);
     U = eye(n);
@@ -19,6 +19,7 @@ function [L, U, x] = Crout(A, b)
         U(i, (i + 1) : n) = (A(i, (i + 1) : n) - sum_for_U) / L(i, i);
     endfor
 
+    % A * x = b; A = L * U
     % L * U * x = b;
     % L * y = b => y (SIT)
     % U * x = y => x (SST)
