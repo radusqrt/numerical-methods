@@ -9,7 +9,7 @@ function is_pos_def = IsPositiveDefinite(A)
 	if IsDiagonallyDominant(A) == 1 && diag(A) > 0 && A == A'
 		return;	
 	endif
-	
+
 	% A can be positive definite with Sylvester theorem
 	for i = 1 : n
 		B = A(1 : i, 1 : i);

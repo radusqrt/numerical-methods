@@ -3,7 +3,7 @@ function is_diag_dom = IsDiagonallyDominant(A)
 	[n n] = size(A);
 	% I assume it is diagonally dominant
 	is_diag_dom = 1;
-	
+
 	for i = 1 : n
 		% calculate the sum of absolute value of 
 		%the elements on line i, except A(i, i)
