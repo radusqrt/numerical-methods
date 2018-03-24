@@ -1,18 +1,18 @@
 % [USES] Algoritmi-ad-hoc/SST
-function [Q R x] = Givens (A, b)
+function [Q, R, x] = Givens(A, b)
   [m n] = size(A);
   % Gt will be the final rotation matrix (the product of all the others)
   Gt = eye(m);
   % iterate through the elements below the main diagonal
   for k = 1 : n-1
-    for l = k + 1 : m
+    for l = k+1 : m
       % initialize the matrix for this step
       G = eye(m);
       
       % calculate cos and sin
       ro = sqrt(A(k, k)^2 + A(l, k)^2);
       c = A(k, k) / ro;
-      s = - A(l, k) / ro;
+      s = -A(l, k) / ro;
       
       % modify the rotation matrix
       G(k, k) = c;
@@ -22,12 +22,12 @@ function [Q R x] = Givens (A, b)
       
       % eliminate A(l, k)
       A = G * A;
-      
       % add the matrix to the product
       Gt = G * Gt;
      endfor
   endfor
-  % the orthogonal matrix is the transpose of the rotation matrix
+  % the orthogonal matrix is 
+  % the transpose of the multiplication of all the rotation matrices
   Q = Gt';
   % A becomes the upper triangular matrix
   R = A;
