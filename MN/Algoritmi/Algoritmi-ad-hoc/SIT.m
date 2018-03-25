@@ -6,7 +6,7 @@ function [x] =  SIT(A, b)
     % [NOTE] There is a function called "istril(A)" which returns 1 if A is a
     %   lower triangular matrix but it doesn't catch the e-16 errors
     %   which should be ignored
-    if max(max(abs(triu(A, 1)))) > eps
+    if max(max(abs(triu(A, 1)))) > 10^3 * eps
         disp('The matrix A is not lower triangular!');
         x = NaN;
         return;
