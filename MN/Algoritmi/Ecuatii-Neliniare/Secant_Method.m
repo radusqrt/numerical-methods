@@ -1,13 +1,10 @@
-function [x, steps] = Secant_Method(f, x0, x1, tol, max_iter)
-    % Solves f(x) = 0 by doing max_iter steps of the secant method
+function [x, i] = Secant_Method(f, x0, x1, tol, max_iter)
+    % solves f(x) = 0 by doing max_iter steps of the secant method;
     % the secant method requires two initial values, x0 and x1
-    % which should ideally be chosen close to the root
+    % which should ideally be chosen close to the root;
     % y = feval(f, x)  evaluates a function using its name or its handle
-    %     and using the input arguments
-    steps = 0;
+    % and using the input arguments;
     for i = 1 : max_iter
-        steps = steps + 1;
-
         % function values: f(x0) and f(x1)
         f0 = feval(f, x0);
         f1 = feval(f, x1);
@@ -17,7 +14,6 @@ function [x, steps] = Secant_Method(f, x0, x1, tol, max_iter)
 
         % calculate f(xi)
         fxi = feval(f, xi);
-
         % xi is the solution
         if abs(fxi) < eps
             x = xi;
@@ -26,14 +22,13 @@ function [x, steps] = Secant_Method(f, x0, x1, tol, max_iter)
 
         % calculate eps
         epsilon = abs((xi - x1) / xi);
-
-        % is achieved a sufficient degree of accuracy eps
+        % stop if the secant method reached its convergence limit
         if epsilon < tol
             x = xi;
             return;
         endif
 
-        % the new values for the next step
+        % update the last two computed values
         x0 = x1;
         x1 = xi;
     endfor
