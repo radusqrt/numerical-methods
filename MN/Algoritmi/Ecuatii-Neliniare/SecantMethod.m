@@ -1,4 +1,4 @@
-function [x, i] = Secant_Method(f, x0, x1, tol, max_iter)
+function [x, i] = SecantMethod(f, x0, x1, tol, max_iter)
     % solves f(x) = 0 by doing max_iter steps of the secant method;
     % the secant method requires two initial values, x0 and x1
     % which should ideally be chosen close to the root;
