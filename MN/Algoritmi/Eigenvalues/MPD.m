@@ -2,7 +2,7 @@ function [lambda y step] = MPD(A, tol, max_iter)
     % This function returns the largest eigenvalue of the matrix and the characteristic vector
     [n n] = size(A);
     % We randomly chose the vector y with values in the interval (0, 1)
-    y = rand(n,1);
+    y = rand(n, 1);
     lambda = inf;
 
     % iterate to the maximum number of iterations
