@@ -1,9 +1,9 @@
-% [USES] PowerMethid(), InversePowerMethod()
+% [USES] PowerMethod, InversePowerMethod
 function [L, V] = Deflation(A, max_iter, tol)
   [n n] = size(A);
-  % initialize the eigenvectors' matrix
-  L = zeros(1, n);
   % initialize the eigenvalues' vector
+  L = zeros(1, n);
+  % initialize the eigenvectors' matrix
   V = zeros(n);
   % save a backup for A
   C = A;
