@@ -8,21 +8,18 @@ function B = GaussJordan(A)
         B = NaN;
         return;
     endif 
-
+    
+    %merge thw two matrices
+    Ae = [A B];
     for i = 1 : n
-        if A(i, i) == 0
+        if Ae(i, i) == 0
             %change lines
-            for k = 1 : n
-                if A(k, k) ~= 0
+            for k = i : n
+                if Ae(k, k) ~= 0
                     %change line i with line k in matrix A
-                    aux = A(i, :);
-                    A(i, :) = A(k, :);
-                    A(k, :) = aux;
-
-                    %change line i with line k in matrix B
-                    aux = B(i, :);
-                    B(i, :) = B(k, :);
-                    B(k, :) = aux;
+                    aux = Ae(i, :);
+                    Ae(i, :) = Ae(k, :);
+                    Ae(k, :) = aux;
 
                     %only one interchange is needed
                     break;
@@ -31,17 +28,17 @@ function B = GaussJordan(A)
         endif
 
         %calculate the pivot
-        B(i, :) = B(i, :) / A(i, i);
-        A(i, :) = A(i, :) / A(i, i);
+        Ae(i, :) = Ae(i, :) / Ae(i, i);
 
         %form zeros above and under the main diagonal in A
         %calculate the inverse in B
         for j = 1 : n
             if i ~= j
-                B(j, :) = B(j, :) - B(i, :) * A(j, i);
-                A(j, :) = A(j, :) - A(i, :) * A(j, i);
+                Ae(j, :) = Ae(j, :) - Ae(i, :) * Ae(j, i);
             endif
         endfor
     endfor
-        
+    
+    %extract matrix B
+    B = Ae(:, n + 1 : 2 * n);
 endfunction
