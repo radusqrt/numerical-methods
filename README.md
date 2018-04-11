@@ -1,6 +1,8 @@
 # numerical-methods
 
-Repository with the purpose of helping the young ones in need on their path to achieving the programmer wisdom. Contains MATLAB/Octave implementations of the algorithms.
+-------------------------------------------------------------------------------------------------
+
+### Repository with the purpose of helping the young ones in need on their path to achieving the programmer wisdom. Contains MATLAB/Octave implementations of the algorithms.
 
 Currently contains:
 - Nonlinear equations:
