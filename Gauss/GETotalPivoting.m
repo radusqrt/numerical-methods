@@ -30,7 +30,7 @@ function [x] = GPT(A, b)
 
         % gaussian elimination
         for i = p + 1 : n
-            % check if the pivot is 0
+            % check if the pivot is 0, by comparing it to eps (a very small value)
             if abs(A(p, p)) < eps
                 disp('One of the pivots is 0');
                 x = NaN;
