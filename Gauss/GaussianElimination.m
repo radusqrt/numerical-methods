@@ -1,11 +1,11 @@
 % [USES] Algoritmi-ad-hoc/SST
-function [x] = G(A, b)
+function [x] = GaussianElimination(A, b)
     n = size(A)(1);
     % build the augmented matrix so we do less operations (tr. matrice extinsa)
     Ae = [A b];
 
     for p = 1 : n - 1
-        % check if the pivot is 0
+        % check if the pivot is 0, by comparing it to eps (a very small value)
         if abs(Ae(p, p)) < eps
             x = NaN;
             return;

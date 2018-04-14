@@ -1,5 +1,5 @@
 % [USES] Algoritmi-ad-hoc/SST
-function [x] = GPP(A, b)
+function [x] = GEPartialPivoting(A, b)
     n = size(A)(1);
     % build the augmented matrix so we do less operations (tr. matrice extinsa)
     Ae = [A b];
@@ -14,7 +14,7 @@ function [x] = GPP(A, b)
         Ae(p, :) = Ae(pivot_line, :);
         Ae(pivot_line, :) = temp;
 
-        % check if the pivot is 0
+        % check if the pivot is 0, by comparing it to eps (a very small value)
         if abs(Ae(p, p)) < eps
             x = NaN;
             return;
