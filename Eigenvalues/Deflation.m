@@ -1,4 +1,4 @@
-% [USES] PowerMethod, InversePowerMethod
+% [USES] Eigenvalues/PowerMethod, Eigenvalues/InversePowerMethod
 function [L, V] = Deflation(A, max_iter, tol)
   [n n] = size(A);
   % initialize the eigenvalues' vector

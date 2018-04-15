@@ -1,5 +1,4 @@
-% [USES] Algoritmi-ad-hoc/SST
-% [USES] Algoritmi-ad-hoc/SIT
+% [USES] Ad-hoc/SST, Ad-hoc/SIT
 function [L, U, x] = Doolittle(A, b)
     % L = eye(n) returns an identity matrix with ones on the main diagonal
     %     and zeros elsewhere

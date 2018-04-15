@@ -1,5 +1,4 @@
-% [USES] Algoritmi-ad-hoc/SST
-% [USES] Algoritmi-ad-hoc/SIT
+% [USES] Ad-hoc/SST, Ad-hoc/SIT
 function [L, U, x] = Crout(A, b)
     % U = eye(n) returns an n-by-n identity matrix with ones on the main
     % diagonal and zeros elsewhere

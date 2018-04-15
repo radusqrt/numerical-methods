@@ -1,4 +1,4 @@
-% [USES] Algoritmi-ad-hoc/SST
+% [USES] Ad-hoc/SST
 function [Q, R, x] = Givens(A, b)
   [m n] = size(A);
   % Gt will be the final rotation matrix (the product of all the others)

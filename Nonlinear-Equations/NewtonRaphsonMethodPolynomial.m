@@ -1,4 +1,4 @@
-function [x, i] = MetodaTangenteiPolinoame(f, x0, tol, max_iter)
+function [x, i] = NewtonRaphsonMethodPolynomial(f, x0, tol, max_iter)
     % solves f(x) = 0 by doing max_iter steps;
     % the method requires one initial value (x0)
     % which should be chosen close to the root;

@@ -1,5 +1,5 @@
-% [USES] Algoritmi-ad-hoc/SST
-function [x] = GPPS(A, b)
+% [USES] Ad-hoc/SST
+function [x] = GEScaledPartialPivoting(A, b)
     n = size(A)(1);
     % build the augmented matrix so we do less operations (tr. matrice extinsa)
     Ae = [A b];

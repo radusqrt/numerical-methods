@@ -1,4 +1,4 @@
-% [USES] Algoritmi-ad-hoc/plotCircle
+% [USES] Ad-hoc/plotCircle
 function plotGershgorin(A)
     % A must be a square matrix
     n = length(A);
