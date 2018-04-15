@@ -1,5 +1,5 @@
 % [USES] Algoritmi-ad-hoc/SST
-function [x] = GPT(A, b)
+function [x] = GETotalPivoting(A, b)
     n = size(A)(1);
     % build the augmented matrix so we do less operations (tr. matrice extinsa)
     Ae = [A b];
@@ -30,7 +30,7 @@ function [x] = GPT(A, b)
 
         % gaussian elimination
         for i = p + 1 : n
-            % check if the pivot is 0
+            % check if the pivot is 0, by comparing it to eps (a very small value)
             if abs(A(p, p)) < eps
                 disp('One of the pivots is 0');
                 x = NaN;
