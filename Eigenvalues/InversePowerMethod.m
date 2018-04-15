@@ -1,5 +1,3 @@
-% [USES] Ad-hoc/SIT
-% [USES] Ad-hoc/SST
 % [USES] LU/Doolittle
 function [lambda, y, step] = InversePowerMethod(A, tol, max_iter, miu)
     % Check if it's a square matrix, otherwise there won't be any eigenvalues
