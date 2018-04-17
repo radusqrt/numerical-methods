@@ -1,5 +1,5 @@
 % computes reverse of matrix A
-function [B success] = GaussJordan(A)
+function [B, success] = GaussJordan(A)
     [n n] = size(A);
     B = eye(n);
     % I assume A has an inverse matrix
@@ -21,7 +21,7 @@ function [B success] = GaussJordan(A)
             return;
         endif
 
-        % calculate the pivot
+        % make the pivot position equal to one (as in the eye matrix)
         Ae(i, :) = Ae(i, :) / Ae(i, i);
 
         % form zeros above and under the main diagonal in A
@@ -33,6 +33,6 @@ function [B success] = GaussJordan(A)
         endfor
     endfor
     
-    % extract matrix B
+    % extract the inverse of matrix A from the augmented matrix
     B = Ae(:, n + 1 : 2 * n);
 endfunction
