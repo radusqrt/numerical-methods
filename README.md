@@ -26,8 +26,14 @@ Currently contains:
 	- Householder
 - Eigenvalues:
 	- Deflation method
-	- Power method (NOT YET)
-	- Inverse Power method (NOT YET)
+	- Power method
+	- Inverse Power method
+- Ad-hoc:
+	- Gauss-Jordan (inverse of a matrix)
+	- Gershgorin circle theorem
+	- Solutions for triangular matrices
+	- Diagonally dominance
+	- Positive definition
 
 - Before starting working on something, check the "Pull requests" tab to see if there isn't anyone who's already doing the same thing!
 - Convention: The sources' names will start with a capital letter: "Crout", "Doolittle", "Householder", "Givens" etc.
