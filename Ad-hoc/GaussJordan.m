@@ -24,8 +24,8 @@ function [B, success] = GaussJordan(A)
         % make the pivot position equal to one (as in the eye matrix)
         Ae(i, :) = Ae(i, :) / Ae(i, i);
 
-        % form zeros above and under the main diagonal in A
-        % calculate the inverse in B
+        % form zeros above and under the main diagonal in the
+        % first half and calculate the inverse in the second half
         for j = 1 : n
             if i ~= j
                 Ae(j, :) = Ae(j, :) - Ae(i, :) * Ae(j, i);
