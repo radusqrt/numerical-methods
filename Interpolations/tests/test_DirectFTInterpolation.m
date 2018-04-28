@@ -10,7 +10,7 @@ z = linspace(-pi*0.9, pi*0.9, m);
 % the actual function values for comparison
 z2 = z.^3+2.*(z.^2)-5.*z;
 
-% applying the Direct Fast Fourier Transform
+% applying the Direct Fourier Transform
 S = DirectFTInterpolation(x, y, z);
 
 % plot the two results for graphic comparison
