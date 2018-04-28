@@ -1,4 +1,4 @@
-function [S] = DirectFFTInterpolation(x, y, z)
+function [S] = DirectFTInterpolation(x, y, z)
 	[n] = length(x);
 	sizeZ = length(z);
 	m = n / 2;
