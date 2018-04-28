@@ -1,4 +1,4 @@
-% [USES] Interpolations/DirectFFTInterpolation
+% [USES] Interpolations/DirectFTInterpolation
 n = 128;
 m = 20000;
 % creating the input n points
@@ -11,7 +11,7 @@ z = linspace(-pi*0.9, pi*0.9, m);
 z2 = z.^3+2.*(z.^2)-5.*z;
 
 % applying the Direct Fast Fourier Transform
-S = DirectFFTInterpolation(x, y, z);
+S = DirectFTInterpolation(x, y, z);
 
 % plot the two results for graphic comparison
 plot(z, S, z, z2);
