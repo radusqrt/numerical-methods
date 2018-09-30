@@ -1,4 +1,6 @@
-# numerical-methods
+# numerical-methods 
+## One PR for Hacktoberfest can be done by changing CONTRIBUTORS.md
+
 
 #### Repository with the purpose of helping the young ones in need on their path to achieving the computer science wisdom. Contains MATLAB/Octave implementations of the algorithms.
 
