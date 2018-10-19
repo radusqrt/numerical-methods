@@ -1,38 +1,68 @@
-# numerical-methods 
-### Repository with the purpose of helping the young ones in need on their path to achieving the computer science wisdom. Contains MATLAB/Octave implementations of the algorithms.
+# numerical-methods
+### Repository with the purpose of helping the ones in need on their path to achieving the computer science numerical wisdom. Contains MATLAB/Octave (and Python/C++ soon) implementations of the algorithms.
 
-Currently contains:
-- Nonlinear equations:
-	- Bisection method
-	- Newton-Raphson method
-	- Secand method
-- Gaussian methods:
-	- Gaussian elimination
-	- Gaussian elimination with Partial Pivoting
-	- Gaussian elimination with Scaled Partial Pivoting
-	- Gaussian elimination with Total Pivoting
-- LU methods:
-	- Cholesky
-	- Crout
-	- Doolittle
-- Iterative methods:
-	- Gauss-Seidel
-	- Jacobi
-	- Successive over-relaxation (SOR)
-- QR methods:
-	- Givens
-	- Gram-Schmidt
-	- Householder
-- Eigenvalues:
-	- Deflation method
-	- Power method
-	- Inverse Power method
-- Ad-hoc:
-	- Gauss-Jordan (inverse of a matrix)
-	- Gershgorin circle theorem
-	- Solutions for triangular matrices
-	- Diagonally dominance
-	- Positive definition
+### Currently contains
+
+#### Nonlinear Equations
+
+| |Matlab|Python|C++|
+|---|---|---|---|---|
+|Bisection method|:octocat:|||
+|Newton-Raphson method|:octocat:|||
+|Secant method|:octocat:|||
+
+#### Gaussian methods
+
+| |Matlab|Python|C++|
+|---|---|---|---|---|
+|Gaussian elimination|:octocat:|||
+|Gaussian elimination with Partial Pivoting|:octocat:|||
+|Gaussian elimination with Scaled Partial Pivoting|:octocat:|||
+|Gaussian elimination with Total Pivoting|:octocat:|||
+
+#### LU Factorization methods
+
+| |Matlab|Python|C++|
+|---|---|---|---|---|
+|Doolittle|:octocat:|||
+|Crout|:octocat:|||
+|Cholesky|:octocat:|||
+
+#### QR Factorization methods
+
+| |Matlab|Python|C++|
+|---|---|---|---|---|
+|Givens|:octocat:|||
+|Gram-Schmidt|:octocat:|||
+|Householder|:octocat:|||
+
+#### Iterative methods
+
+| |Matlab|Python|C++|
+|---|---|---|---|---|
+|Gauss-Seidel|:octocat:|||
+|Jacobi|:octocat:|||
+|Successive over-relaxation (SOR)|:octocat:|||
+
+#### Eigenvalues decomposition
+
+| |Matlab|Python|C++|
+|---|---|---|---|---|
+|Power method|:octocat:|||
+|Inverse Power method|:octocat:|||
+|Deflation method|:octocat:|||
+
+#### Ad-hoc algorithms
+
+| |Matlab|Python|C++|
+|---|---|---|---|---|
+|Diagonally dominance|:octocat:|||
+|Positive definition|:octocat:|||
+|Triangular matrices evaluation|:octocat:|||
+|Gershgorin circles|:octocat:|||
+|Gauss-Jordan Matrix Inverse|:octocat:|||
+
+### Convention
 
 - Before starting working on something, check the "Pull requests" tab to see if there isn't anyone who's already doing the same thing!
 - Convention: The sources' names will start with a capital letter: "Crout", "Doolittle", "Householder", "Givens" etc.
