@@ -1,20 +1,20 @@
 # numerical-methods
 ### Repository with the purpose of helping the ones in need on their path to achieving the computer science numerical wisdom. Contains MATLAB/Octave (and Python/C++ soon) implementations of the algorithms.
 
-### Currently contains
+### Implemented algorithms
 
 #### Nonlinear Equations
 
-| |Matlab|Python|C++|
-|---|---|---|---|---|
-|Bisection method|:octocat:|||
-|Newton-Raphson method|:octocat:|||
-|Secant method|:octocat:|||
+| | Matlab | Python | C++ |
+| --- | --- | --- | --- |
+| Bisection method| :octocat: | | |
+| Newton-Raphson method | :octocat: | | |
+| Secant method | :octocat: | | |
 
 #### Gaussian methods
 
 | |Matlab|Python|C++|
-|---|---|---|---|---|
+|---|---|---|---|
 |Gaussian elimination|:octocat:|||
 |Gaussian elimination with Partial Pivoting|:octocat:|||
 |Gaussian elimination with Scaled Partial Pivoting|:octocat:|||
@@ -23,7 +23,7 @@
 #### LU Factorization methods
 
 | |Matlab|Python|C++|
-|---|---|---|---|---|
+|---|---|---|---|
 |Doolittle|:octocat:|||
 |Crout|:octocat:|||
 |Cholesky|:octocat:|||
@@ -31,7 +31,7 @@
 #### QR Factorization methods
 
 | |Matlab|Python|C++|
-|---|---|---|---|---|
+|---|---|---|---|
 |Givens|:octocat:|||
 |Gram-Schmidt|:octocat:|||
 |Householder|:octocat:|||
@@ -39,7 +39,7 @@
 #### Iterative methods
 
 | |Matlab|Python|C++|
-|---|---|---|---|---|
+|---|---|---|---|
 |Gauss-Seidel|:octocat:|||
 |Jacobi|:octocat:|||
 |Successive over-relaxation (SOR)|:octocat:|||
@@ -47,7 +47,7 @@
 #### Eigenvalues decomposition
 
 | |Matlab|Python|C++|
-|---|---|---|---|---|
+|---|---|---|---|
 |Power method|:octocat:|||
 |Inverse Power method|:octocat:|||
 |Deflation method|:octocat:|||
@@ -55,7 +55,7 @@
 #### Ad-hoc algorithms
 
 | |Matlab|Python|C++|
-|---|---|---|---|---|
+|---|---|---|---|
 |Diagonally dominance|:octocat:|||
 |Positive definition|:octocat:|||
 |Triangular matrices evaluation|:octocat:|||
