@@ -1,4 +1,4 @@
-% [USES] Ad-hoc/SST, Ad-hoc/SIT
+% [USES] ad-hoc/SST, ad-hoc/SIT
 % calculates Cholesky factorization, A = L * L'
 % A must be positive-definite
 function [L U x] = Cholesky (A, b)

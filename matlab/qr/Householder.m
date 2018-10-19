@@ -1,4 +1,4 @@
-% [USES] Ad-hoc/SST
+% [USES] ad-hoc/SST
 function [Q, R, x] = Householder(A, b)
     n = length(b);
     Q = eye(n);

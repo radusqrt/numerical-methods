@@ -1,4 +1,4 @@
-% [USES] Ad-hoc/SST
+% [USES] ad-hoc/SST
 function [Q, R, x] = GramSchmidt(A, b)
   [m n] = size(A);
   Q = [];

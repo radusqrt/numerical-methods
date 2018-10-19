@@ -1,4 +1,4 @@
-% [USES] Interpolations/NevillePoint
+% [USES] interpolations/NevillePoint
 % Function that calculates the Neville interpolation polynomial for a vector
 % of points (a, b) with a:xs, b:ys in "elements" points between the first of xs
 % and the last of xs; it also plots the interpolation

@@ -1,4 +1,4 @@
-% [USES] Ad-hoc/SST
+% [USES] ad-hoc/SST
 function [x] = GEScaledPartialPivoting(A, b)
     n = size(A)(1);
     % build the augmented matrix so we do less operations (tr. matrice extinsa)
