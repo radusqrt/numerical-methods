@@ -75,6 +75,9 @@
 
 -------------------------------------------------------------------------------------------------
 
+### Python coding style
+https://github.com/google/yapf
+
 ### Contributors
 
 This project exists thanks to all the people who <a href="https://github.com/radusqrt/numerical-methods/graphs/contributors">contribute</a>.
