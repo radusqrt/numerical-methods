@@ -10,6 +10,7 @@ max_iter = 5
 w = 1.1
 
 def SOR(A, b, x0, tol, max_iter, w):
+	#
 	# sanity checks
 	if (w >= 2 or w <= 0):
 		print('w should be inside (0, 2)');
