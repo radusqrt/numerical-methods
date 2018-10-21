@@ -9,6 +9,7 @@ tol = 10 ^ (-10)
 max_iter = 100
 
 def GaussSeidel(A, b, x0, tol, max_iter):
+	#
 	# use this algorithm only if it converges
 	N = np.tril(A)
 	P = N - A
