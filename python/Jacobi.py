@@ -10,6 +10,7 @@ max_iter = 1000
 
 
 def Jacobi(A, b, x0, tol, max_iter):
+	#
 	# use this algorithm only if it converges
 	N = np.diag(np.diag(A))
 	P = N - A
