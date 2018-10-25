@@ -8,7 +8,7 @@ Usage: ./bisection start_point finish_point stoppingCriterion epsilon
 
 Iteration: #numOfIteration, the absolute error: #valueOfAbsoluteError, the relative error: #valueOfRelativeError
 
-**Sample input**
+**Sample input**  
 Function: x + 1 − 2sin(πx) = 0 for 0.5 ≤ x ≤ 1
 Main arguments: 0.5 1 DISTANCE_TO_ROOT 0.00001
 
