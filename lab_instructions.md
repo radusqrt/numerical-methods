@@ -1,5 +1,11 @@
 # Instructiuni pentru laboratorul de MN
 
+## Alegere alias unic
+
+Intrati [aici](https://docs.google.com/spreadsheets/d/1ZNWChct5qWZcqeay0zMtXWjDHpMtmii-GMOXJwzJ4uY/edit?usp=sharing) si treceti-va numele + un alias pe care il voi folosi pentru autograding. Alias-ul trebuie sa contina doar litere mici si cifre si sa nu inceapa cu cifre.
+
+Documentul va fi blocat de pe 03.03.2020, deci nu va veti mai putea schimba alias-ul ales.
+
 ## Instalare
 
 ### 1. Instalare Octave
@@ -32,8 +38,16 @@ De fiecare data cand vreti sa lucrati la MN, porniti environment-ul special facu
 
 ```conda activate mn_env```
 
-Pentru a porni Jupyter Notebooks intr-un director anume in sistem, folositi comanda urmatoare.
+Pentru a porni Jupyter Notebooks intr-un director anume in sistem, folositi comanda urmatoare:
 
 ```jupyter notebook```
 
 Nu uitati sa verificati la fiecare fisier in care lucrati ca in dreapta sus apare kernel-ul folosit ca fiind ```Octave```.
+
+## Trimitere
+
+Imi veti trimite pe adresa radu.stochitoiu@gmail.com cate un mail pentru fiecare laborator cu titlul ```[<lab_name_as_in_drive_directory>] [<your_chosen_alias>] Laborator MN``` si care va contine cate o arhiva cu urmatoarea structura de fisiere:
+
+```<your_chosen_alias>/<lab_name_as_in_drive_directory>/assignment.ipynb```
+
+Exemplu: pentru laboratorul LU, numele laboratorului este ```2-lu```, dupa cum se poate vedea in [drive](https://drive.google.com/open?id=1rgnXmFved0mU9ka_G09D5TKp4Gt_LzIc).
