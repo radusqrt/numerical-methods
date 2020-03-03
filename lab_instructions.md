@@ -32,6 +32,12 @@ conda install octave_kernel
 conda install texinfo
 ```
 
+### 6. Instalare gnuplot pentru grafice in Octave
+
+```
+conda install -c bioconda gnuplot
+```
+
 ## Folosire
 
 De fiecare data cand vreti sa lucrati la MN, porniti environment-ul special facut pentru asta.
