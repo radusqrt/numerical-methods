@@ -56,4 +56,4 @@ Imi veti trimite pe adresa radu.stochitoiu@gmail.com cate un mail pentru fiecare
 
 ```<your_chosen_alias>/<lab_name_as_in_drive_directory>/assignment.ipynb```
 
-Exemplu: pentru laboratorul LU, numele laboratorului este ```2-lu```, dupa cum se poate vedea in [drive](https://drive.google.com/open?id=1rgnXmFved0mU9ka_G09D5TKp4Gt_LzIc).
+Exemplu: pentru laboratorul LU, numele laboratorului este ```2-lu```, dupa cum se poate vedea in [drive](https://drive.google.com/open?id=1rgnXmFved0mU9ka_G09D5TKp4Gt_LzIc); titlul email-ului poate fi [2-lu] [radusqrt] Laborator MN. 
