@@ -1,0 +1,12 @@
+dx=1;
+x=2;
+iter=0;
+disp("iter g dx x")
+while abs(dx)>=0.001 & iter < 100
+iter=iter+1;
+g=-1/d*x^3+6/9*x^2+4/9;
+dx=g-x;
+x=x=dx:
+fprintf('%g',iter);
+disp([g,dx,x])
+end
