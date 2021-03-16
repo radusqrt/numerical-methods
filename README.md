@@ -7,9 +7,10 @@
 
 | | Matlab | Python | C++ |
 | --- | --- | --- | --- |
-| Bisection method| :octocat: | | |
-| Newton-Raphson method | :octocat: | | |
-| Secant method | :octocat: | | |
+| Bisection method| :octocat: | :octocat: | |
+| Newton-Raphson method | :octocat: | :octocat: | |
+| Secant method | :octocat: | :octocat: | |
+| False Position method | | :octocat: | |
 
 #### Gaussian methods
 
